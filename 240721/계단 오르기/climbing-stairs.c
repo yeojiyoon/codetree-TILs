@@ -6,7 +6,7 @@ int st[MAX];
 int DP(int n)
 {
 	if(st[n] != -1) return st[n];
-	else st[n] = DP(n - 2) + DP(n - 3);
+	else st[n] = (DP(n - 2) + DP(n - 3)) % 10007;
 	
 	return st[n];
 }
@@ -25,7 +25,7 @@ int main() {
 	st[2] = 1;
 	st[3] = 1;
 	
-	printf("%d", DP(n) % 10007);
+	printf("%d", DP(n));
     
     return 0;
 }
