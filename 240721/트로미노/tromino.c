@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAX 200
+#define MAX 210
 
 int grid[MAX][MAX];
 
