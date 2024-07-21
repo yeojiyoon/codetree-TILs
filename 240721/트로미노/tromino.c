@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAX 210
+#define MAX 200
 
 int grid[MAX][MAX];
 
@@ -32,16 +32,13 @@ int findMaxCase01(int n, int m)
 	for(i = 0; i < n - 1; i++)
 	{
 		for(j = 0; j < m - 1; j++)
-		{
-			sum = max(grid[i][j] + grid[i][j + 1] + grid[i + 1][j], grid[i][j] + grid[i][j + 1] + grid[i + 1][j + 1]);
-			max_num = max(max_num, sum);
+		{	
+			sum = grid[i][j] + grid[i+1][j] + grid[i][j+1] + grid[i+1][j+1];
+			max_num = max(max_num, sum - grid[i][j]);
+			max_num = max(max_num, sum - grid[i+1][j]);
+			max_num = max(max_num, sum - grid[i][j+1]);
+			max_num = max(max_num, sum - grid[i+1][j+1]); 
 		}
-	}
-	
-	for(j = 0; j < m - 1; j++)
-	{
-		sum = max(grid[n - 2][j] + grid[n-1][j] + grid[n-1][j + 1], grid[n - 2][j + 1] + grid[n-1][j] + grid[n-1][j + 1]);
-		max_num = max(max_num, sum);
 	}
 	
 	return max_num;
