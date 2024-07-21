@@ -38,6 +38,12 @@ int findMaxCase01(int n, int m)
 		}
 	}
 	
+	for(j = 0; j < m - 1; j++)
+	{
+		sum = max(grid[n - 2][j] + grid[n-1][j] + grid[n-1][j + 1], grid[n - 2][j + 1] + grid[n-1][j] + grid[n-1][j + 1]);
+		max_num = max(max_num, sum);
+	}
+	
 	return max_num;
 }
 
